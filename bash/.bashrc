@@ -1,24 +1,6 @@
 eval "$(thefuck --alias)"
 
-alias sp="spotify"
-alias nvimconf="nvim ~/.config/nvim/init.vim"
-# alias bashrc="nvim ~/.bashrc"
-# alias sbashrc="source ~/.bashrc"
-
-alias yabairc="nvim ~/.config/yabai/yabairc"
-alias skhdrc="nvim ~/.config/skhd/skhdrc"
-
-alias .config="cd ~/.config"
-
-CEMDir="~/Dropbox/CEM"
-alias CEM="cd $CEMDir"
-
-fabianDir="/Users/ephraimsutherland/documents/Fabian"
-alias fabian="cd $fabianDir"
-
-alias ozone="cd /Users/ephraimsutherland/documents/ozone"
-# alias python="python3"
-# alias pip="pip3"
+source ~/.config/bash/aliases
 
 shopt -s extglob
 
