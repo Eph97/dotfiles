@@ -1,0 +1,23 @@
+\documentclass{beamer}
+\usepackage{multirow,array, multicol}
+\mode<presentation> {\usetheme{Madrid}}
+\usepackage{graphicx} 
+\usepackage{booktabs} 
+\setbeamertemplate{footline}[text line]{%
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right, rightskip=1mm, leftskip=1mm]{titlelike}
+		\,\,\,\insertshorttitle \hfill \insertframenumber /\inserttotalframenumber \,\,\,%
+\end{beamercolorbox}}	
+
+%--------------------------------------------------------------------------
+%	TITLE PAGE
+%--------------------------------------------------------------------------
+
+\title[presentation topic]{Title} 
+\author{Author} 
+\date{\today} 
+\begin{document}    
+\begin{frame}
+	\titlepage 
+\end{frame}
+
+\end{document}

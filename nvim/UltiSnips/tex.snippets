@@ -1,0 +1,163 @@
+# snippet beg "begin{} / end{}" bA
+# \begin{$1}
+# 	$0
+# \end{$1}
+# endsnippet
+# snippet { "close {} brackets" iA
+# {$1}
+# endsnippet
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+snippet ,m "Math" iA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet ,nm "Math" wA
+\begin{align*}
+$1
+\end{align*} $0
+endsnippet
+
+# snippet '\\left(\))?' "left right" wr
+# \left`!p snip.rv = match.group(1)` $1 \right`!p snip.rv = match.group(1)`
+# endsnippet
+
+snippet { "bracket" i
+\{$1\}$0
+endsnippet
+
+snippet \{ "set" i
+\\{$1\\}$0
+endsnippet
+
+snippet sqrt "square roote" w
+\sqrt{$1}$0
+endsnippet
+
+snippet \bar "bar" w
+\bar{$1}$0
+endsnippet
+
+snippet '\\bin(om)?' "binomial" wr
+\binom{$1}{$2}$0
+endsnippet
+
+snippet \sum "Summation" i
+\sum_{$1}^{$2}$0
+endsnippet
+
+snippet \Pi "Pi" w
+\Pi_{$1}^{$2}$0
+endsnippet
+
+# snippet '\bar(.)' "auto bar" wr
+# \bar{`!p snip.rv = match.group(1)`}
+# endsnippet
+
+# snippet '([A-Za-z])(\d)' "auto subscript" wr
+# `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+# endsnippet
+
+snippet '([A-Za-z])_' "auto subscript2" wr
+`!p snip.rv = match.group(1)`_{$1}$0
+endsnippet
+
+snippet ,sq "^2" iA
+^2
+endsnippet
+
+snippet ,cb "^3" iA
+^3
+endsnippet
+
+snippet compl "complement" i
+^{c}
+endsnippet
+
+snippet ,tn "superscript" iA
+^{$1}$0
+endsnippet
+
+snippet ,inv "inverse" iA
+^{-1}$0
+endsnippet
+
+
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+global !p
+def create_matrix(snip):
+
+        matrix_str = (snip.buffer[snip.line].split('mat')[0]+'matrix').strip()
+
+        rows = 'x'.join(snip.buffer[snip.line].split("x", 2)[:-1])
+        cols = 'x'.join(snip.buffer[snip.line].split("x", 2)[-1:])
+
+        int_val = lambda string: int(''.join(s for s in string if s.isdigit()))
+
+        rows = int_val(rows)
+        cols = int_val(cols)
+
+        offset = cols + 1
+        old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+
+        snip.buffer[snip.line] = ''
+
+        final_str = old_spacing + "\\begin{"+matrix_str+"}\n"
+
+        for i in range(rows):
+                final_str += old_spacing + '\t'
+                final_str += " & ".join(['$' + str(i * cols + j + offset) for j in range(cols)])
+
+                final_str += " \\\\\\\n"
+
+        final_str += old_spacing + "\\end{"+matrix_str+"}\n$0"
+
+        snip.expand_anon(final_str)
+
+endglobal
+pre_expand "create_matrix(snip)"
+snippet "(small|[bBpvV])?mat(rix)?(\d+)x(\d+)" "Generate (small|[bBpvV])?matrix of *rows* by *columns*" br
+endsnippet
+
+# global !p
+# def create_matrix(mat, rows, cols):
+# 	fstring = "\\begin{"+ mat + 'matrix' + "}\n"
+# 	cols = int(cols)
+# 	rows = int(rows)
+# 	offset = cols +1
+# # 	fstring += '\t $1 & $2 \\\\\n'
+# 	for i in range(rows):
+# 		fstring += '\t'
+# 		fstring += " & ".join(['$' + str(i * cols + j + 1 ) for j in range(cols)])
+# 		fstring += " \\\\\n"
+# 	fstring += "\\end{"+ mat + 'matrix' + "}\n$0"
+# 	snip.expand_anon(fstring)
+# endglobal
+
+# snippet "(small|[bBpvV])?mat(rix)?(\d+)x(\d+)" "Generate (small|[bBpvV])?matrix of *rows* by *columns*" brt
+# `!p snip.rv = create_matrix(match.group(1), match.group(3), match.group(4))
+# `
+# endsnippet
+
+
+snippet enum "Enumerate" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
