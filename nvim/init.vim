@@ -277,7 +277,7 @@ augroup END
 
 
 " Hoping to speed up scrolling speed. Sets Syntax highlight column number
-set synmaxcol=200
+" set synmaxcol=200
 
 " allows scroll etc
 set mouse=n
@@ -295,14 +295,9 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 "
 " no highlighting once search is complete
-set nohlsearch
+" set nohlsearch
 
 
-nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
-nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
-
-source ~/.config/nvim/lua/lsp-wrapper.vim
 luafile ~/.config/nvim/lua/lsp/python-lsp.lua
 
 lua << EOF
@@ -316,6 +311,14 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
   end
 EOF
+
+nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
+
+source ~/.config/nvim/lua/lsp-wrapper.vim
+
+let $PAGER=''
+
