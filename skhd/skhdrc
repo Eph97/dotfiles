@@ -27,9 +27,11 @@ shift + alt + ctrl - j : yabai -m window --warp south
 shift + alt + ctrl - k : yabai -m window --warp north
 shift + alt + ctrl - l : yabai -m window --warp east
 
+ctrl + alt - l : yabai -m space --focus next
+ctrl + alt - h : yabai -m space --focus prev
 
-shift + alt - left : yabai -m display --focus prev
-shift + alt - right : yabai -m display --focus next
+# shift + alt - left : yabai -m display --focus prev
+# shift + alt - right : yabai -m display --focus next
 
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
 shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
