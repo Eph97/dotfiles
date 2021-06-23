@@ -2,8 +2,15 @@
 " vim: set ft=vim et sw=2:
 
 "Plugins {{{
-" if !exists("*plug#begin")
-" endif
+" Bootstrap plugin manager installation
+lua << EOF
+local execute = vim.api.nvim_command
+local install_path = vim.fn.stdpath('data')..'/site/autoload/plug.vim'
+
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  execute('!curl -fLo '..install_path..' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+end
+EOF
 
 call plug#begin(stdpath('data') . '/plugged')
 "provides snippets and  automcomplete  support  similar visual studio
@@ -50,7 +57,7 @@ Plug 'tpope/vim-surround'
 Plug 'metakirby5/codi.vim'
 
 "  vim snippets and snippets engine
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'machakann/vim-highlightedyank'
 
@@ -157,9 +164,9 @@ nnoremap ,tex :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.t
 nnoremap ,beamer :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.beamerTex<CR>15Gfp
 
 " for ultisnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "set's relative line number
 set nu
