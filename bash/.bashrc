@@ -1,6 +1,13 @@
+# put in ~/.bash_profile
+# BASHRC_CONFIG_DIR=~/.config/bash
+
+# if [ -f "$BASHRC_CONFIG_DIR/.bashrc" ]; then
+#     . "$BASHRC_CONFIG_DIR/.bashrc"
+# fi
+
 eval "$(thefuck --alias)"
 
-source ~/.config/bash/aliases
+source ~/.config/bash/aliases.sh
 
 shopt -s extglob
 

@@ -14,6 +14,9 @@ alias CEM="cd $CEMDir"
 fabianDir="/Users/ephraimsutherland/documents/Fabian"
 alias fabian="cd $fabianDir"
 
+planetDir="/Users/ephraimsutherland/documents/Fabian/CEM/ephraim/planet"
+alias planet="cd $planetDir"
+
 alias ozone="cd /Users/ephraimsutherland/documents/ozone"
 # alias python="python3"
 # alias pip="pip3"
