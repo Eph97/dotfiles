@@ -9,7 +9,7 @@ eval "$(thefuck --alias)"
 
 source ~/.config/bash/aliases.sh
 
-shopt -s extglob
+# shopt -s extglob
 
 source ~/.config/bash/execut/WorkFlowShortCuts.sh
 

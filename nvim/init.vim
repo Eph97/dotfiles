@@ -179,8 +179,6 @@ set smarttab
 
 " tell it to use an undo file
 set undofile
-" set a directory to store the undo history
-set undodir=~/.vim/undodir
 "don't search node_modules folder
 set wildignore+=**/node_modules/**
 

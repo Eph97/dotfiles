@@ -3,6 +3,9 @@ alias nvimconf="nvim ~/.config/nvim/init.vim"
 alias bashrc="nvim ~/.config/bash/.bashrc"
 alias sbashrc="source ~/.config/bash/.bashrc"
 
+alias szshrc="source ~/.config/zsh/.zshrc"
+alias zshrc="nvim ~/.config/zsh/.zshrc"
+
 alias yabairc="nvim ~/.config/yabai/yabairc"
 alias skhdrc="nvim ~/.config/skhd/skhdrc"
 
