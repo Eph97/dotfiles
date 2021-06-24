@@ -1,4 +1,7 @@
+alias aliases="nvim ~/.config/bash/aliases.sh"
+
 alias sp="spotify"
+
 alias nvimconf="nvim ~/.config/nvim/init.vim"
 alias bashrc="nvim ~/.config/bash/.bashrc"
 alias sbashrc="source ~/.config/bash/.bashrc"

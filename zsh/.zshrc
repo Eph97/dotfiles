@@ -1,3 +1,5 @@
+# add ZDOTDIR=~/.config/zsh to zshenv
+# to tell zsh where to look for .zshrc file
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -s '^p' 'nvim $(fzf)\n'
