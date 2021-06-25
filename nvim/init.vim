@@ -17,7 +17,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'tpope/vim-sensible'
-
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'neovim/nvim-lspconfig'
 Plug 'airblade/vim-rooter'
 
@@ -101,6 +101,7 @@ call plug#end()
 " LUA CONFIGS
 luafile ~/.config/nvim/lua/lsp/python-lsp.lua
 luafile ~/.config/nvim/lua/lsp/bash-lsp.lua
+luafile ~/.config/nvim/lua/lsp/latex-lsp.lua
 
 lua << EOF
 local on_attach = function(client, bufnr)
@@ -261,3 +262,16 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 let $PAGER=''
 
+function! InstallPackages()
+    let winview = winsaveview()
+    call inputsave()
+    let cmd = ['sudo -S tlmgr install']
+    %call add(cmd, matchstr(getline('.'), '\\usepackage\(\[.*\]\)\?{\zs.*\ze\}'))
+    echomsg join(cmd)
+    let pass = inputsecret('Enter sudo password:') . "\n"
+    echo system(join(cmd), pass)
+    call inputrestore()
+    call winrestview(winview)
+endfunction
+
+command! InstallPackages call InstallPackages()
