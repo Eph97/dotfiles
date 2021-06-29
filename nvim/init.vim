@@ -101,7 +101,7 @@ call plug#end()
 " LUA CONFIGS
 luafile ~/.config/nvim/lua/lsp/python-lsp.lua
 luafile ~/.config/nvim/lua/lsp/bash-lsp.lua
-luafile ~/.config/nvim/lua/lsp/latex-lsp.lua
+" luafile ~/.config/nvim/lua/lsp/latex-lsp.lua
 
 lua << EOF
 local on_attach = function(client, bufnr)
