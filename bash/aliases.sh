@@ -26,3 +26,21 @@ alias planet="cd $planetDir"
 alias ozone="cd /Users/ephraimsutherland/documents/ozone"
 # alias python="python3"
 # alias pip="pip3"
+
+alias gits="git status"
+alias gita="git add"
+
+
+# p () {
+#     local open
+#     open=open   # on OSX, "open" opens a pdf in preview
+#     ag -U -g ".pdf$" \
+#     | fast-p \
+#     | fzf --read0 --reverse -e -d $'\t'  \
+#         --preview-window down:80% --preview '
+#             v=$(echo {q} | gtr " " "|"); 
+#             echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
+#         ' \
+#     | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
+# }
+

@@ -1,12 +1,12 @@
 # add ZDOTDIR=~/.config/zsh to zshenv
 # to tell zsh where to look for .zshrc file
+bindkey -v
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 bindkey -s '^p' 'nvim $(fzf)\n'
 
-bindkey -v
 
 source ~/.config/bash/aliases.sh
+source ~/.config/bash/execut/WorkFlowShortCuts.sh
 
 setopt extended_glob
 

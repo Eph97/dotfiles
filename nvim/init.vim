@@ -57,7 +57,7 @@ Plug 'tpope/vim-surround'
 Plug 'metakirby5/codi.vim'
 
 "  vim snippets and snippets engine
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'machakann/vim-highlightedyank'
 
@@ -161,13 +161,13 @@ command! F Files
 
 " Read an empty HTML template and move cursor to title
 nnoremap ,html :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.html<CR>3jwf>a
-nnoremap ,tex :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.tex<CR>39GfC
-nnoremap ,beamer :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.beamerTex<CR>15Gfp
+nnoremap ,pset :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.tex<CR>9GfC
+nnoremap ,beamer :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.beamer.tex<CR>15Gfp
 
 " for ultisnips
-" let g:UltiSnipsExpandTrigger = '<tab>'
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "set's relative line number
 set nu
@@ -184,9 +184,9 @@ set undofile
 set wildignore+=**/node_modules/**
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
