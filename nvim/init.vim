@@ -16,6 +16,8 @@ call plug#begin(stdpath('data') . '/plugged')
 "provides snippets and  automcomplete  support  similar visual studio
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'tpope/vim-eunuch'
+
 " Plug 'tpope/vim-sensible'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'neovim/nvim-lspconfig'
@@ -93,6 +95,10 @@ Plug 'xolox/vim-notes'
 Plug 'jpalardy/vim-slime'
 
 Plug 'vimpostor/vim-tpipeline'
+
+" stata
+Plug 'poliquin/stata-vim' " syntax highlighting
+Plug 'zizhongyan/vim-stata'
 
 " Plug 'tpope/vim-rails'
 call plug#end()
@@ -254,8 +260,8 @@ inoremap <Leader><Space><Space> <++>
 " NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 " Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 "
 " no highlighting once search is complete
 " set nohlsearch
@@ -275,3 +281,28 @@ function! InstallPackages()
 endfunction
 
 command! InstallPackages call InstallPackages()
+
+function! Scratch()
+    " split
+    noswapfile hide enew
+    setlocal buftype=nofile
+    setlocal bufhidden=hide
+    "setlocal nobuflisted
+    "lcd ~
+    file scratch
+endfunction
+
+let g:notes_directories = ['~/Documents/Notes', '~/Documents/Notes1']
+
+syn region urlTitle matchgroup=mkdDelimiter start="\[" end="\]" oneline concealends nextgroup=urlRef
+syn region urlRef matchgroup=mkdDelimiter start="(" end=")" oneline conceal contained
+
+hi link urlTitle notesRealURL
+hi link urlRef notesRealURL
+
+" Run stata do file
+function! RunDo()
+  call system("tmux send-keys -t .1 cd " . expand("%:p:h") . ' C-m')
+  call system("tmux send-keys -t .1 'do '" . expand("%") . ' C-m')
+endfunction
+

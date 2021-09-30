@@ -1,8 +1,8 @@
 #!/bin/bash
 
-classDir="/Users/ephraimsutherland/documents/college_classes/Senior/Spring"
-class () {
-        cd $classDir/$1/$2/$3
+classDir="/Users/ephraimsutherland/documents/Classes/"
+classes () {
+        cd $classDir
 }
 
 strack () { if [ "$1" == "local" ]

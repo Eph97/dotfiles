@@ -30,6 +30,7 @@ alias ozone="cd /Users/ephraimsutherland/documents/ozone"
 alias gits="git status"
 alias gita="git add"
 
+alias books="cd ~/Documents/Textbooks:pdfs/"
 
 # p () {
 #     local open
