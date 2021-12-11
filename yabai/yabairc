@@ -16,5 +16,6 @@ yabai -m config window_gap 4
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+/* yabai -m rule --add app="^Stata*" manage=off */
 
 yabai -m space --gap abs:1

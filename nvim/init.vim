@@ -91,7 +91,11 @@ Plug 'xolox/vim-notes'
 
 " for htmlo tags
 " Plug 'mattn/emmet-vim'
-"
+
+" allow JSX syntax highlighting and context dependent comments
+Plug 'suy/vim-context-commentstring'
+Plug 'MaxMEllon/vim-jsx-pretty'
+
 Plug 'jpalardy/vim-slime'
 
 Plug 'vimpostor/vim-tpipeline'
@@ -283,7 +287,6 @@ endfunction
 command! InstallPackages call InstallPackages()
 
 function! Scratch()
-    " split
     noswapfile hide enew
     setlocal buftype=nofile
     setlocal bufhidden=hide
@@ -300,9 +303,15 @@ syn region urlRef matchgroup=mkdDelimiter start="(" end=")" oneline conceal cont
 hi link urlTitle notesRealURL
 hi link urlRef notesRealURL
 
-" Run stata do file
+" Run stata do file {{{
 function! RunDo()
   call system("tmux send-keys -t .1 cd " . expand("%:p:h") . ' C-m')
   call system("tmux send-keys -t .1 'do '" . expand("%") . ' C-m')
 endfunction
+" }}}
+" " Turn off the 80th column line
+let g:vimforstata_set_column = 0
+
+set guitablabel=%t
+
 

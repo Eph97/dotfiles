@@ -20,10 +20,6 @@ alias CEM="cd $CEMDir"
 fabianDir="/Users/ephraimsutherland/documents/Fabian"
 alias fabian="cd $fabianDir"
 
-planetDir="/Users/ephraimsutherland/documents/Fabian/CEM/ephraim/planet"
-alias planet="cd $planetDir"
-
-alias ozone="cd /Users/ephraimsutherland/documents/ozone"
 # alias python="python3"
 # alias pip="pip3"
 
@@ -31,6 +27,13 @@ alias gits="git status"
 alias gita="git add"
 
 alias books="cd ~/Documents/Textbooks:pdfs/"
+
+alias IPA="cd ~/Documents/IPA"
+
+BoxDir="/Users/ephraimsutherland/Library/CloudStorage/Box-Box/"
+alias Box="cd $BoxDir"
+
+
 
 # p () {
 #     local open
