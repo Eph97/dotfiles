@@ -134,11 +134,11 @@ source ~/.config/nvim/lua/lsp-wrapper.vim
 
 " latex configurations {{{
 let g:tex_flavor='latex'
-" let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=0
 let g:tex_conceal='abdmg'
-let g:vimtex_view_method = 'skim'
+let g:vimtex_view_method='zathura'
+" let g:vimtex_view_method = 'skim'
 if has('nvim')
   let g:vimtex_compiler_progname = 'nvr'
   " source $HOME/.config/nvim/coc.vim
@@ -170,9 +170,9 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 command! F Files
 
 " Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.html<CR>3jwf>a
-nnoremap ,pset :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.tex<CR>9GfC
-nnoremap ,beamer :-1read /Users/ephraimsutherland/.config/nvim/snippets/.skeleton.beamer.tex<CR>15Gfp
+nnoremap ,html :-1read $HOME/.config/nvim/snippets/.skeleton.html<CR>3jwf>a
+nnoremap ,pset :-1read $HOME/.config/nvim/snippets/.skeleton.tex<CR>9GfC
+nnoremap ,beamer :-1read $HOME/.config/nvim/snippets/.skeleton.beamer.tex<CR>15Gfp
 
 " for ultisnips
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -313,5 +313,4 @@ endfunction
 let g:vimforstata_set_column = 0
 
 set guitablabel=%t
-
 
