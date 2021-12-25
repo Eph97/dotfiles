@@ -121,4 +121,20 @@ git config --system --unset credential.helper
 git pull -v
 
 
+# make new window open in same directory
+sudo apt-get install -y libx11-dev
+git clone https://github.com/schischi/xcwd.git
+make
+sudo make install
 
+#add to i3conf
+bindsym $mod+Return exec kitty -d "`xcwd`"
+
+# File manager
+sudo apt-get install ranger
+
+
+
+# Rclone can mount google drive
+rclone mount mygoogledrive: ~/drive/
+rclone mount personalGoogleDrive: ~/gdrive --daemon
