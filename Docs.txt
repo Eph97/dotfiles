@@ -44,6 +44,9 @@ wget https://git.io/Jv7wA -O ~/wallpapers/blue_pink_gradient.jpg
 nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=0 && sleep 0.5
 # nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=1
 
+# install Rofi
+sudo apt install rofi
+
 
 # Install Dracula theme for GTK
 cd /usr/share/themes
@@ -138,3 +141,14 @@ sudo apt-get install ranger
 # Rclone can mount google drive
 rclone mount mygoogledrive: ~/drive/
 rclone mount personalGoogleDrive: ~/gdrive --daemon
+
+#unmount
+fusermount -uz ~/gdrive
+
+# terminal based email client
+neomutt
+mailsync to download new mail
+
+# install R (look up detailed instructions).
+
+# installed neofetch (gives info about system).
