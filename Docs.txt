@@ -2,6 +2,11 @@
 sudo mv /usr/lib/firmware/iwlwifi-ty-a0-gf-a0.pnvm  /usr/lib/firmware/iwlwifi-ty-a0-gf-a0.bak
 
 
+#Install Neovim
+cd ~/Applications
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+
 # use Brightness Buttons
 # install brightnessctl
 sudo apt-get install brightnessctl
@@ -152,3 +157,41 @@ mailsync to download new mail
 # install R (look up detailed instructions).
 
 # installed neofetch (gives info about system).
+
+
+systemctl [stop | start ] bluetooth
+
+lxappearance to manage different themes
+
+sudo apt-get install dunst # for notifications
+
+
+For new keyboard:
+xconf can be edited in 
+/usr/share/X11/xorg.conf.d
+Check difference between libinput and xorg.conf to understand
+how to edit individual devices.
+
+
+
+for wayland zoom (https://www.math.cmu.edu/~gautam/sj/blog/20220326-zoom-wayland.html)
+sudo apt-get obs-studio v4l2loopback-utils xdg-desktop-portal
+sudo modprobe -iv v4l2loopback
+
+/etc/modules-load.d/v4l2loopback-local.conf
+
+
+
+# Sway install
+https://llandy3d.github.io/sway-on-ubuntu/simple_install/
+
+
+Other packages installed
+jpegoptim
+
+Latex:
+created latex folder in ~/.local/share
+In this folder, I've added various custom fonts from github
+
+
+For coursenotes git, you then symlink to /usr/local/share/texmf
