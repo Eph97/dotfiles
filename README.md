@@ -1,8 +1,9 @@
 # dotfiles
 
 
-* Window Manager -- Yabai
+* Window Manager -- i3-gaps
 * TextEditor -- Neovim
-* Terminal -- Iterm2
+* Terminal -- kitty
 * Shell -- zsh
+* Vibes -- immaculate
 
