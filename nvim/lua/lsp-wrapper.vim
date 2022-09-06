@@ -7,3 +7,8 @@ nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+" For preview
+" nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+" nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+" nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>

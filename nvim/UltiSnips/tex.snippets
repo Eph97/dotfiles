@@ -54,9 +54,9 @@ snippet \sum "Summation" i
 \sum_{$1}^{$2}$0
 endsnippet
 
-snippet \zum "Summation" i
-\sum_{$1}^{<++>}<++>
-endsnippet
+# snippet \zum "Summation" i
+# \sum_{$1}^{<++>}<++>
+# endsnippet
 
 snippet \Pi "Pi" w
 \Pi_{$1}^{$2}$0
@@ -72,6 +72,10 @@ endsnippet
 
 snippet '([A-Za-z])_' "auto subscript2" wr
 `!p snip.rv = match.group(1)`_{$1}$0
+endsnippet
+
+snippet '^' "superscript" i
+^{$1}$0
 endsnippet
 
 snippet ,sq "^2" iA
