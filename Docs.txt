@@ -195,3 +195,8 @@ In this folder, I've added various custom fonts from github
 
 
 For coursenotes git, you then symlink to /usr/local/share/texmf
+
+
+Power mangagement, edit
+/etc/systemd/logind.conf
+

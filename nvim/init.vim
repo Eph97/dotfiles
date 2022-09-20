@@ -355,10 +355,12 @@ hi link urlTitle notesRealURL
 hi link urlRef notesRealURL
 
 " Run stata do file {{{
-function! RunDo()
+function! RunDo(cd="")
   " call system("tmux send-keys -t .1 cd " . expand("%:p:h") . ' C-m')
   " call system("tmux send-keys -t .1 'do '" . expand("%") . ' C-m')
-  call slime#send('cd ' . '"' . expand("%:p:h") . '"' . "\r")
+  if a:cd == "cd"
+    call slime#send('cd ' . '"' . expand("%:p:h") . '"' . "\r")
+  endif
   call slime#send("do " . '"' .expand("%:p") .'"' . "\n")
 endfunction
 
@@ -372,7 +374,7 @@ function! Statamarkdown()
   call system('stata -b markstat using ' . fp . ', pdf')
 endfunction
 " }}}
-command! Rundo call RunDo()
+command! -nargs=* Rundo call RunDo(<f-args>)
 command! Statamarkdown call Statamarkdown()
 
 " " Turn off the 80th column line
@@ -410,21 +412,6 @@ augroup filetype_markdow
         autocmd BufWritePost *.md :call AutoPandoc()
 augroup END
 
-
-" function! Rmarkdown()
-"   set autochdir
-"   let pdf = expand("%:r") . '.pdf'
-"   " call system(join(['R -e \"rmarkdown::render("', expand("%"), '"']))
-"    call system("R -e \"rmarkdown::render('" . expand("%") . "')\"")
-"    execute "silent !zathura '" .  pdf . "' &"
-" endfunction
-
-" function! Rreload()
-"   set autochdir
-"   let pdf = expand("%:r") . '.pdf'
-"   " call system(join(['R -e \"rmarkdown::render("', expand("%"), '"']))
-"    call system("R -e \"rmarkdown::render('" . expand("%") . "')\"")
-" endfunction
 
 
 function! RSend()
@@ -503,3 +490,6 @@ vnoremap <silent><leader>f <Esc>:Ag <C-R>=<SID>getVisualSelection()<CR><CR>
 set tabstop=4
 set smarttab " Autotabs for certain code
 set shiftwidth=4
+
+
+cnoremap sourceconf source $MYVIMRC <cr>
