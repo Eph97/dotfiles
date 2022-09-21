@@ -374,7 +374,6 @@ function! Statamarkdown()
   call system('stata -b markstat using ' . fp . ', pdf')
 endfunction
 " }}}
-command! -nargs=* Rundo call RunDo(<f-args>)
 command! Statamarkdown call Statamarkdown()
 
 " " Turn off the 80th column line
@@ -466,8 +465,6 @@ function! RunPy()
     " endif
 endfunction
 
-
-command! RunPy call RunPy()
 
 
 function! s:getVisualSelection()
