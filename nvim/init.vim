@@ -60,7 +60,8 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'metakirby5/codi.vim'
 
 "  vim snippets and snippets engine
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' 
+Plug 'honza/vim-snippets'
 
 Plug 'machakann/vim-highlightedyank'
 
@@ -111,10 +112,6 @@ Plug 'Eph97/vim-rmarkdown'
 " Plug 'tpope/vim-rails'
 call plug#end()
 "}}}
-" augroup pandoc_syntax
-"     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-"     au! BufNewFile,BufFilePre,BufRead *.Rmd set filetype=rmarkdown.pandoc
-" augroup END
 
 " LUA CONFIGS
 " luafile ~/.config/nvim/lua/lsp/python-lsp.lua
@@ -490,3 +487,10 @@ set shiftwidth=4
 
 
 cnoremap sourceconf source $MYVIMRC <cr>
+
+
+function! Spellcheck()
+  setlocal spell spelllang=en_us
+endfunction
+
+command! Spellcheck Spellcheck

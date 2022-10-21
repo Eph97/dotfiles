@@ -70,15 +70,38 @@ endsnippet
 # `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 # endsnippet
 
-snippet '([A-Za-z])_' "auto subscript2" wr
-`!p snip.rv = match.group(1)`_{$1}$0
+# snippet '([A-Za-z])_' "auto subscript2" wr
+# `!p snip.rv = match.group(1)`_{$1}$0
+# endsnippet
+
+snippet _ "auto subscript2" i
+_{$1}$0
+endsnippet
+
+snippet '(\\sub|sub)' "auto subscript2" wr
+\subseteq
+endsnippet
+
+snippet cal "auto subscript2" w
+\mathcal{$1}$0
 endsnippet
 
 
-snippet 'math' "mathbb symbols" wr
+snippet ... "ldots" i
+\ldots
+endsnippet
+
+snippet under "underset" w
+\underset{$1}{$2}$0
+endsnippet
+
+snippet math "mathbb symbols" w
 \mathbb{$1}$0
 endsnippet
 
+snippet '(\\te|te)' "text" wr
+\text{$1}$0
+endsnippet
 
 snippet ^ "superscript" i
 ^{$1}$0
