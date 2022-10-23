@@ -9,12 +9,13 @@
 intern="eDP-1"
 # extern="HDMI-1"
 # work="DP-2"
-# extern="DP-2"
+# extern="DP-4"
 
 
 # extern=$(xrandr | grep -P "^\w+-[0-9]+ connected" | grep -vP "eDP-1" | sed -e 's/ .*$//' | dmenu)
 extramonitor() {
-	extern=$(xrandr | grep -P "^\w+-[0-9]+ connected" | grep -vP "(Screen)|(eDP-1)" | sed -e 's/ .*$//' | dmenu)
+	# extern=$(xrandr | grep -P "^\w+-[0-9]+ connected" | grep -vP "(Screen)|(eDP-1)" | sed -e 's/ .*$//' | dmenu)
+	extern=$(xrandr | grep -P "^\w+-[0-9]+" | grep -vP "(Screen)|(eDP-1)" | sed -e 's/ .*$//' | dmenu)
   case "$1" in
       "disconnect") xrandr --output "$extern" --off --output "$intern" --auto ;;
       # "extra") xrandr --output "$extern" --mode 2560x1440 --auto --right-of "$intern" ;;
