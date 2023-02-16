@@ -110,6 +110,13 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Eph97/vim-rmarkdown'
 " Plug 'tpope/vim-rails'
+"
+Plug 'eigenfoo/stan-vim'
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+
+Plug 'github/copilot.vim'
+
 call plug#end()
 "}}}
 
@@ -274,7 +281,7 @@ augroup END
 let g:slime_target = "tmux"
 " let g:slime_target = "Kitty"
 " let g:slime_target = "X11"
-let g:slime_paste_file = "$HOME/.slime_paste"
+" let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
 
@@ -342,6 +349,7 @@ function! Scratch()
     "lcd ~
     file scratch
 endfunction
+command! Scratch call Scratch()
 
 let g:notes_directories = ['~/Documents/Notes']
 
@@ -452,17 +460,6 @@ nnoremap T gT
 
 
 
-function! RunPy()
-    " if rmarkdown#nrrwrgn#InsideRChunk() == 1
-	" let range = rmarkdown#nrrwrgn#ChunkRange()
-	" exe range[0].','.range[1].'SlimeSend'
-    " else
-    let fp = '"' . expand("%:p") . '"'
-    call slime#send("exec(open(".fp.").read())\r")
-    " endif
-endfunction
-
-
 
 function! s:getVisualSelection()
     let [line_start, column_start] = getpos("'<")[1:2]
@@ -482,8 +479,8 @@ endfunction
 vnoremap <silent><leader>f <Esc>:Ag <C-R>=<SID>getVisualSelection()<CR><CR>
 
 set tabstop=4
-set smarttab " Autotabs for certain code
 set shiftwidth=4
+set smarttab " Autotabs for certain code
 
 
 cnoremap sourceconf source $MYVIMRC <cr>
@@ -493,4 +490,38 @@ function! Spellcheck()
   setlocal spell spelllang=en_us
 endfunction
 
-command! Spellcheck Spellcheck
+command! Spellcheck call Spellcheck()
+
+let g:copilot_enabled = v:false
+
+" let g:pandoc#command#prefer_pdf = 0
+
+let g:pandoc#command#custom_open = "MyPandocOpen"
+
+function! MyPandocOpen(file)
+    let file = shellescape(fnamemodify(a:file, ':p'))
+    let file_extension = fnamemodify(a:file, ':e')
+    if file_extension is? 'pdf'
+        if !empty($PDFVIEWER)
+            return expand('$PDFVIEWER') . ' ' . file
+        elseif executable('zathura')
+            return 'zathura ' . file
+        " elseif executable('mupdf')
+        "     return 'mupdf ' . file
+        endif
+    elseif file_extension is? 'html'
+        if !empty($BROWSER)
+            return expand('$BROWSER') . ' ' . file
+        elseif executable('firefox')
+            return 'firefox ' . file
+        elseif executable('chromium')
+            return 'chromium ' . file
+        endif
+    elseif file_extension is? 'odt' && executable('okular')
+        return 'okular ' . file
+    elseif file_extension is? 'epub' && executable('okular')
+        return 'okular ' . file
+    else
+        return 'xdg-open ' . file
+    endif
+endfunction

@@ -200,3 +200,20 @@ For coursenotes git, you then symlink to /usr/local/share/texmf
 Power mangagement, edit
 /etc/systemd/logind.conf
 
+seems to have fixed my issue with moving mouse?
+sudo apt install xserver-xorg-input-synaptics
+
+To find keycode:
+xev
+
+
+
+# List mountable drive
+sudo fdisk -l
+
+# mount flashdrive
+mount /dev/<flashdrive-partition-name> /media/usb-drive/
+
+
+# unmount flashdrive
+umount: /media/usb-drive

@@ -21,6 +21,8 @@ bluetoothList(){
 
 
 
+	# extern=$(xrandr | grep -P "^\w+-[0-9]+" | grep -vP "(Screen)|(eDP-1)" | sed -e 's/ .*$//' | dmenu)
+  # case "$1" in
 
 # bluetest(){
 # 	if [ $# -eq 0 ]; then
