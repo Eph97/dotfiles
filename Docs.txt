@@ -1,0 +1,140 @@
+# Fix wifi driver
+sudo mv /usr/lib/firmware/iwlwifi-ty-a0-gf-a0.pnvm  /usr/lib/firmware/iwlwifi-ty-a0-gf-a0.bak
+
+
+# use Brightness Buttons
+# install brightnessctl
+sudo apt-get install brightnessctl
+# set user video access
+sudo usermod -aG video $USER
+# Add config to i3 config
+ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
+ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
+
+
+
+# key mods
+setxkbmap -option caps:swapescape
+
+# change mouse speed
+# xinput list
+# xinput list-props ID
+# xinput set-prop 12 339 0.9
+#
+# # repeat rate
+xset r rate 200 25
+#
+
+sudo apt-get install fzf
+# install fzf dependencies
+sudo apt-get install silversearcher-ag
+sudo apt-get install ripgrep
+
+#
+# set zsh as default
+sudo apt-get install zsh
+chsh -s $(which zsh)
+
+echo "ZDOTDIR=\"${HOME}/.config/zsh\"" >> ~/.zshenv
+sudo apt install -y nitrogen xdotool dunst lm-sensors sysstat acpi
+
+# Download and set wallpaper
+mkdir -p ~/wallpapers
+wget https://git.io/Jv7wA -O ~/wallpapers/blue_pink_gradient.jpg
+nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=0 && sleep 0.5
+# nitrogen --save --set-scaled ~/wallpapers/blue_pink_gradient.jpg --head=1
+
+
+# Install Dracula theme for GTK
+cd /usr/share/themes
+sudo wget https://github.com/dracula/gtk/archive/master.zip -O dracula.zip
+sudo unzip dracula.zip
+sudo mv gtk-master Dracula
+echo "[Settings]
+gtk-theme-name=Dracula" > ~/.config/gtk-3.0/settings.ini
+
+# Install Compton
+sudo apt install compton
+
+# Create config file
+touch ~/.config/i3/compton.conf
+
+# Download and install font-awesome
+sudo mkdir -p /usr/share/fonts/opentype/font-awesome
+sudo wget https://git.io/JvHi9 -O '/usr/share/fonts/opentype/font-awesome/Font Awesome 5 Free-Solid-900.otf'
+
+# volume menu 
+ sudo apt-get install pavucontrol
+
+
+# markdown viewer
+sudo apt-get install pandoc
+
+sudo apt-get install lynx
+
+
+# clipboard
+sudo apt-get install -y xclip
+
+# install bat. May save as batcat
+sudo apt install -o Dpkg::Options::="--force-overwrite" bat ripgrep
+
+# install latex (just install full if you have even close to enough space. Anything else is a bitch)
+sudo apt install texlive-full
+
+# Use zathura for pdfviewer
+sudo apt-get install zathura -y
+
+#bluetooth use bluetoothctl
+bluetoothctl pair <MACADRESS> # to pair for a first time with a new device
+bluetoothctl connect <MACADRESS> #reconnect to a device
+
+# language servers
+# Bash
+sudo npm i -g bash-language-server
+
+#python
+sudo npm install -g pyright
+
+# github token
+
+git config --global user.name "your_github_username"
+git config --global user.email "your_github_email"
+git config -l
+# Once GIT is configured, we can begin using it to access GitHub. Example:
+
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `Spoon-Knife`...
+Username for 'https://github.com' : username
+Password for 'https://github.com' : give your personal access token here
+Now cache the given record in your computer to remembers the token:
+
+git config --global credential.helper cache
+
+# If needed, anytime you can delete the cache record by:
+
+git config --global --unset credential.helper
+git config --system --unset credential.helper
+
+#Now try to pull with -v to verify
+
+git pull -v
+
+
+# make new window open in same directory
+sudo apt-get install -y libx11-dev
+git clone https://github.com/schischi/xcwd.git
+make
+sudo make install
+
+#add to i3conf
+bindsym $mod+Return exec kitty -d "`xcwd`"
+
+# File manager
+sudo apt-get install ranger
+
+
+
+# Rclone can mount google drive
+rclone mount mygoogledrive: ~/drive/
+rclone mount personalGoogleDrive: ~/gdrive --daemon
