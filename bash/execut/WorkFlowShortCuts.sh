@@ -52,11 +52,22 @@ Take () {
 	mkdir $1 && cd $_
 }
 
+# prevNumPages
 p () {
     local open
+    local numPages;
+    numPages=2;
+    prevVal=$(cat $HOME/.config/bash/execut/prev)
+    if  [[ $1 = "-n" ]]; then
+	    numPages=$2
+    fi
+    if [[ "$numPages" != "$prevVal" ]]; then
+	    fast-p -clear-cache
+	    echo $numPages | tee $HOME/.config/bash/execut/prev
+    fi
     open=open   # on OSX, "open" opens a pdf in preview
     ag -U -g ".pdf$" \
-    | fast-p \
+    | fast-p -n "$numPages" \
     | fzf --read0 --reverse -e -d $'\t'  \
         --preview-window down:80% --preview '
             v=$(echo {q} | gtr " " "|"); 
@@ -64,5 +75,4 @@ p () {
         ' \
     | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
 }
-
 

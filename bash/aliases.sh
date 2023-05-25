@@ -26,6 +26,8 @@ alias fabian="cd $fabianDir"
 alias gits="git status"
 alias gita="git add"
 
+alias kittyconf="nvim ~/.config/kitty/kitty.conf"
+
 alias books="cd ~/Documents/Textbooks:pdfs/"
 
 alias IPA="cd ~/Documents/IPA"

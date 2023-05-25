@@ -77,3 +77,9 @@ bindkey -v '^?' backward-delete-char
 # export PATH="$PATH:$GEM_HOME/bin"
 eval "$(rbenv init -)"
 # export PATH=$PATH:/Applications/Stata/StataSE.app/Contents/MacOS
+#
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+
+# figlet fuck the police

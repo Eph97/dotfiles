@@ -295,7 +295,7 @@ function! Scratch()
     file scratch
 endfunction
 
-let g:notes_directories = ['~/Documents/Notes', '~/Documents/Notes1']
+let g:notes_directories = ['~/Documents/Notes']
 
 syn region urlTitle matchgroup=mkdDelimiter start="\[" end="\]" oneline concealends nextgroup=urlRef
 syn region urlRef matchgroup=mkdDelimiter start="(" end=")" oneline conceal contained
