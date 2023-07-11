@@ -8,7 +8,8 @@ bindkey -s '^p' 'nvim $(fzf)\n'
 
 
 source ~/.config/bash/aliases.sh
-source ~/.config/bash/execut/WorkFlowShortCuts.sh
+source ~/.config/zsh/WorkFlowShortCuts.sh
+# source ~/.config/zsh/pdfviewer.sh
 
 setopt extended_glob
 
@@ -102,3 +103,8 @@ alias sprofile="source ~/.profile"
 export GO111MODULE=on
 
 export PATH="$HOME/go/bin:$PATH"
+
+export PATH="$HOME/custom/bin:$PATH"
+
+alias vimdiff='nvim -d'
+

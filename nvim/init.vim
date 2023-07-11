@@ -98,7 +98,7 @@ Plug 'xolox/vim-notes'
 Plug 'suy/vim-context-commentstring'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
-Plug 'jpalardy/vim-slime'
+Plug 'Eph97/vim-slime'
 
 Plug 'vimpostor/vim-tpipeline'
 
@@ -116,6 +116,8 @@ Plug 'eigenfoo/stan-vim'
 
 
 Plug 'github/copilot.vim'
+
+Plug 'goerz/jupytext.vim'
 
 call plug#end()
 "}}}
@@ -216,6 +218,7 @@ nnoremap ,html :-1read $HOME/.config/nvim/snippets/.skeleton.html<CR>3jwf>a
 nnoremap ,pset :-1read $HOME/.config/nvim/snippets/.skeleton.tex<CR>9GfC
 nnoremap ,beamer :-1read $HOME/.config/nvim/snippets/.skeleton.beamer.tex<CR>15Gfp
 nnoremap ,rmd :-1read $HOME/.config/nvim/snippets/.skeleton.rmd<CR>9G
+nnoremap ,leet :-1read $HOME/.config/nvim/snippets/.skeleton.py<CR>7G
 
 " for ultisnips
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -266,6 +269,7 @@ highlight FoldColumn guibg=darkgrey guifg=white
 "
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+set viewoptions-=curdir
 
 
 augroup BgHighlight
@@ -392,7 +396,11 @@ function! Mdview()
   call Pandoc()
 
   " echo "silent !zathura " . pdf . " &"
-  execute "silent !zathura " .  pdf . " &"
+  if !system("pgrep -a zathura | grep " . pdf . " | awk '{print $1}'")
+    execute "silent !zathura " .  pdf . " &"
+  else
+    echo "Already Open"
+  endif
 endfunction
 
 function! Pandoc()
@@ -420,8 +428,8 @@ augroup END
 
 function! RSend()
     if rmarkdown#nrrwrgn#InsideRChunk() == 1
-	let range = rmarkdown#nrrwrgn#ChunkRange()
-	exe range[0].','.range[1].'SlimeSend'
+      let range = rmarkdown#nrrwrgn#ChunkRange()
+      exe range[0].','.range[1].'SlimeSend'
     else
         let fp = '"' . expand("%:p") . '"'
         call slime#send("source(".fp.", echo = TRUE, max.deparse.length = 4095)\r")
@@ -525,3 +533,7 @@ function! MyPandocOpen(file)
         return 'xdg-open ' . file
     endif
 endfunction
+
+
+" let g:vimforstata_pathbin = /usr/local/stata17/xstata
+let g:vimforstata_pathbin = "/usr/bin/xstata"

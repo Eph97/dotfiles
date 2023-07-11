@@ -194,7 +194,8 @@ created latex folder in ~/.local/share
 In this folder, I've added various custom fonts from github
 
 
-For coursenotes git, you then symlink to /usr/local/share/texmf
+For coursenotes git, you then symlink to ~/texmf/tex/<dir>
+Don't forget kpsewhich and where to figure out details about accessing style documents
 
 
 Power mangagement, edit
