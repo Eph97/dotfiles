@@ -390,40 +390,6 @@ let g:vimforstata_set_column = 0
 
 set guitablabel=%t
 
-" markdown stuff{{{
-function! Mdview()
-  let pdf = '"' . expand("%:p:r") . '.pdf' . '"'
-  call Pandoc()
-
-  " echo "silent !zathura " . pdf . " &"
-  if !system("pgrep -a zathura | grep " . pdf . " | awk '{print $1}'")
-    execute "silent !zathura " .  pdf . " &"
-  else
-    echo "Already Open"
-  endif
-endfunction
-
-function! Pandoc()
-  let pdf = '"' . expand("%:p:r") . '.pdf' . '"'
-  let fp = '"' . expand("%:p") . '"'
-  call system(join(['pandoc', fp, '-o', pdf]))
-  " echo join(['pandoc', fp, '-o', pdf])
-endfunction
-
-function! AutoPandoc()
-  let pdf = '"' . expand("%:p:r") . '.pdf' . '"'
-  let fp = '"' . expand("%:p") . '"'
-  if filereadable(pdf)
-    call system(join(['pandoc', fp, '-o', pdf]))
-  endif
-endfunction
-
-
-augroup filetype_markdow
-	autocmd!
-        autocmd BufWritePost *.md :call AutoPandoc()
-augroup END
-
 
 
 function! RSend()
@@ -440,9 +406,7 @@ command! RSend call RSend()
 " command! Rreload call Rreload()
 " command! Rmarkdown call Rmarkdown()
 autocmd FileType rmarkdown setlocal commentstring=#\ %s
-command! Mdview call Mdview()
 
-" }}}
 
 
 let g:rooter_manual_only = 1
