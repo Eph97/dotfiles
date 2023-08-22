@@ -119,6 +119,8 @@ Plug 'github/copilot.vim'
 
 Plug 'goerz/jupytext.vim'
 
+Plug 'justinmk/vim-sneak'
+
 call plug#end()
 "}}}
 
@@ -501,3 +503,70 @@ endfunction
 
 " let g:vimforstata_pathbin = /usr/local/stata17/xstata
 let g:vimforstata_pathbin = "/usr/bin/xstata"
+
+" source nrrwrgn.vim
+command! PyChunk call python#nrrwrgn#NarrowPyChunk()
+
+function! MdToNotebook()
+  echo "Markdown to Jupyter Notebook"
+  let b:filename = expand("%:r")
+  call system("jupytext --to=ipynb --from=md --update --output ".b:filename.".ipynb ".b:filename.".md")
+endfunction
+
+function! NotebookToMd()
+  echo "Jupyter Notebook to Markdown"
+  let l:filename = expand("%:r")
+  let l:md_filename = l:filename.".md"
+  let l:ipynb_filename = l:filename.".ipynb"
+  let l:cmd="jupytext --to=md --output ".l:md_filename." " .l:ipynb_filename
+  echo "md to jupyter notebook"
+  call system(l:cmd) | execute "edit ".l:md_filename
+  " autocmd BufWritePost  call MdToNotebook()
+  execute 'autocmd BufWritePost '.l:md_filename.' call MdToNotebook()'
+endfunction
+
+let g:jupytext_enable = 0
+command! NotebookToMd call NotebookToMd()
+command! MdToNotebook call MdToNotebook()
+" jupytext --to=md --output test.md test.ipynb
+" jupytext --to=ipynb --from=md --update --output test.ipynb test.md
+"
+
+
+" augroup jupytext_ipynb2
+"     " Remove all ipynb autocommands
+"     au!
+"     autocmd BufReadCmd *.ipynb  call Read_from_ipynb2()
+" augroup END
+
+" function! Read_from_ipynb2()
+"   au! jupytext_ipynb2 * <buffer>
+"   execute MdToNotebook
+"   let b:filename = expand("%:r")
+"   let b:md_filename = b:filename.".md"
+"   let b:ipynb_filename = b:filename.".ipynb"
+"   " silent execute "edit ++enc=utf-8 ".b:md_filename
+"   " silent execute "setl fenc=utf-8 ft=markdown"
+"   " silent 1delete
+" endfunction
+"
+function! RunJupyter()
+  " let l:line_count=line('$')
+  let start = []
+  g/^[~`]\{3}python/call add(start, line('.'))
+  let end = []
+  g/^[~`]\{3}$/call add(end, line('.'))
+  " echo len(start)
+  " let concat=[start,end]
+  let num_chunks = len(start)
+  let i = 0
+  while i< num_chunks
+    " echo "hello world".start[i]."".end[i]
+    let first_code = start[i]+1
+    let last_code = end[i]-1
+    exe first_code.",".last_code." SlimeSend"
+    let i +=1
+  endwhile
+endfunction
+
+command! RunJupyter call RunJupyter()

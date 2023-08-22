@@ -4,11 +4,12 @@ bindkey -v
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
-bindkey -s '^p' 'nvim $(fzf)\n'
+bindkey -s '^p' 'nvim "$(fzf)"\n'
 
 
 source ~/.config/bash/aliases.sh
 source ~/.config/zsh/WorkFlowShortCuts.sh
+# source ~/.config/bash/execut/arithGame.sh
 # source ~/.config/zsh/pdfviewer.sh
 
 setopt extended_glob
@@ -108,3 +109,7 @@ export PATH="$HOME/custom/bin:$PATH"
 
 alias vimdiff='nvim -d'
 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

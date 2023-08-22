@@ -1,10 +1,13 @@
 function! RunPy()
-    " if rmarkdown#nrrwrgn#InsideRChunk() == 1
-	" let range = rmarkdown#nrrwrgn#ChunkRange()
-	" exe range[0].','.range[1].'SlimeSend'
-    " else
-    let fp = '"' . expand("%:p") . '"'
-    call slime#send("exec(open(".fp.").read())\r")
+    if python#nrrwrgn#InsidePyChunk() == 1
+		call python#nrrwrgn#SlimeSend()
+	elseif &buftype=="acwrite"
+		echo "acwrite"
+		exe '0,$ SlimeSend'
+	else
+		let fp = '"' . expand("%:p") . '"'
+		call slime#send("exec(open(".fp.").read())\r")
+	endif
     " endif
 endfunction
 
