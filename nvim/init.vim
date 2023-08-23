@@ -51,7 +51,7 @@ Plug 'tpope/vim-surround'
 
 
 "for opening  lines of code in a new window? explore later
-" Plug 'chrisbra/NrrwRgn'
+Plug 'chrisbra/NrrwRgn'
 
 " Plug 'ctrlpvim/ctrlp.vim'
 
@@ -62,6 +62,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'machakann/vim-highlightedyank'
+
 
 Plug 'preservim/nerdtree'
 "
@@ -105,6 +106,10 @@ Plug 'poliquin/stata-vim' " syntax highlighting
 Plug 'zizhongyan/vim-stata'
 
 " Plug 'tpope/vim-rails'
+
+
+Plug 'goerz/jupytext.vim'
+
 call plug#end()
 "}}}
 
