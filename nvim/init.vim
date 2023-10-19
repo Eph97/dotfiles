@@ -420,6 +420,7 @@ endfunction
 
 cmap fp let @+ = '"' . expand("%:p") .'"' <cr>
 cmap fdir let @+ = '"' . expand("%:p:h") .'"' <cr>
+cmap xstata let @+ = 'cd "' . expand("%:p:h") .'" ' . "\ndoedit " . expand("%:t") <cr>
 
 nnoremap <c-n> :noh<CR>
 
@@ -570,3 +571,27 @@ function! RunJupyter()
 endfunction
 
 command! RunJupyter call RunJupyter()
+
+
+
+
+function! RunRmd()
+  " let l:line_count=line('$')
+  let start = []
+  g/^[~`]\{3}{\?r}\?/call add(start, line('.'))
+  let end = []
+  g/^[~`]\{3}$/call add(end, line('.'))
+  " echo len(start)
+  " let concat=[start,end]
+  let num_chunks = len(start)
+  let i = 0
+  while i< num_chunks
+    " echo "hello world".start[i]."".end[i]
+    let first_code = start[i]+1
+    let last_code = end[i]-1
+    exe first_code.",".last_code." SlimeSend"
+    let i +=1
+  endwhile
+endfunction
+
+command! RunRmd call RunRmd()
