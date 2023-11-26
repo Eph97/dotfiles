@@ -28,11 +28,11 @@ sub () {
 }
 
 multi () {
-	i=$((RANDOM%12+1))
+	i=$((2+RANDOM%11))
 	j=$((RANDOM%$RANGE+1))
 	echo "$i * $j"; sol=$(($i * $j)); }
 div () { 
-	i=$((RANDOM%12+1))
+	i=$((2+RANDOM%12))
 	j=$((RANDOM%$RANGE+1))
 	multi=$(($i * $j))
 	# echo "$multi % $j"; sol=$(bc -l <<< $i/$j); }
