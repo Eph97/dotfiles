@@ -9,6 +9,7 @@ bindkey -s '^p' 'nvim "$(fzf)"\n'
 
 source ~/.config/bash/aliases.sh
 source ~/.config/zsh/WorkFlowShortCuts.sh
+source ~/.config/zsh/scripts/arithGame.sh
 # source ~/.config/bash/execut/arithGame.sh
 # source ~/.config/zsh/pdfviewer.sh
 
@@ -114,4 +115,7 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias venv="source `find . -name activate`"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+

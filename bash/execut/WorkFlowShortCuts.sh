@@ -52,17 +52,34 @@ Take () {
 	mkdir $1 && cd $_
 }
 
+# p () {
+#     local open
+#     open=xdg_open   # on OSX, "open" opens a pdf in preview
+#     ag -U -g ".pdf$" \
+#     | fast-p \
+#     | fzf --read0 --reverse -e -d $'\t'  \
+#         --preview-window down:80% --preview '
+#             v=$(echo {q} | gtr " " "|"); 
+#             echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
+#         ' \
+#     | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
+# }
+
 p () {
-    local open
-    open=open   # on OSX, "open" opens a pdf in preview
+    open=zathura  
     ag -U -g ".pdf$" \
     | fast-p \
     | fzf --read0 --reverse -e -d $'\t'  \
         --preview-window down:80% --preview '
-            v=$(echo {q} | gtr " " "|"); 
-            echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
+            v=$(echo {q} | tr " " "|"); 
+            echo -e {1}"\n"{2} | grep -E "^|$v" -i --color=always;
         ' \
-    | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
+    | cut -z -f 1 -d $'\t' | tr -d '\n' | xargs -r --null $open > /dev/null 2> /dev/null
 }
 
+
+
+fp () {
+	readlink -f $1 | sed 's/\(.*\)/"\1"/g' | xclip -sel clio
+}
 

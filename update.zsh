@@ -1,6 +1,12 @@
 # dotfiles=~/Documents/dotfiles
 
 cp ~/.config/zsh/.zshrc ~/Documents/dotfiles/zsh/.zshrc
+cp ~/.config/zsh/scripts/arithGame.sh ~/Documents/dotfiles/zsh/scripts/arithGame.sh
+
+cp ~/.config/bash/.bashrc ~/Documents/dotfiles/bash/.bashrc
+# for i in $HOME/.config/bash/execute/*; do cp $i ./bash/execut; done
+for i in ~/.config/bash/execut/*.sh; do cp $i ./bash/execut/; done
+
 
 cp ~/.config/nvim/UltiSnips/tex.snippets ~/Documents/dotfiles/nvim/UltiSnips/tex.snippets
 cp ~/.config/nvim/init.vim ~/Documents/dotfiles/nvim/init.vim
