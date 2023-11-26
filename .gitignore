@@ -2,3 +2,7 @@
 .DS_Store
 
 iterm2/AppSupport/**
+
+bash/execut/test.sh
+
+bash/execut/sp.sh
