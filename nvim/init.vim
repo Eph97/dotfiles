@@ -178,6 +178,7 @@ command! F Files
 nnoremap ,html :-1read $HOME/.config/nvim/snippets/.skeleton.html<CR>3jwf>a
 nnoremap ,pset :-1read $HOME/.config/nvim/snippets/.skeleton.tex<CR>9GfC
 nnoremap ,beamer :-1read $HOME/.config/nvim/snippets/.skeleton.beamer.tex<CR>15Gfp
+nnoremap ,gitignore :-1read $HOME/.config/nvim/snippets/.skeleton.gitignore<CR>
 
 " for ultisnips
 let g:UltiSnipsExpandTrigger = '<tab>'

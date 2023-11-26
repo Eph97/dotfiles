@@ -7,6 +7,7 @@ bindkey -s '^p' 'nvim $(fzf)\n'
 
 source ~/.config/bash/aliases.sh
 source ~/.config/bash/execut/WorkFlowShortCuts.sh
+source ~/.config/zsh/scripts/arithGame.sh
 
 setopt extended_glob
 

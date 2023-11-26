@@ -22,6 +22,11 @@ execute () {
 
 D2B=({0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1}{0..1})
 
+
+venv () {
+	source `find . -name activate`
+}
+
 #Decimal to binary. Run by calling echo ${D2B[15]}.
 
 #function countdown(){
