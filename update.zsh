@@ -19,3 +19,5 @@ cp ~/.config/zathura/zathurarc ~/Documents/dotfiles/zathura/zathurarc
 cp ~/.config/tmux/tmux.conf ~/Documents/dotfiles/tmux/tmux.conf
 
 cp ~/.config/kitty/kitty.conf ~/Documents/dotfiles/kitty/kitty.conf
+
+cp ~/.zshenv .zshenv

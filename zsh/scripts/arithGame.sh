@@ -21,12 +21,12 @@ highScore=0
 
 
 addi () {
-	i=$((RANDOM%$RANGE+1))
-	j=$((RANDOM%$RANGE+1))
+	i=$((RANDOM%$ADD_SUB_RANGE+2)) # sample from 2-100
+	j=$((RANDOM%$ADD_SUB_RANGE+2)) # sample from 2-100
 	echo "$i + $j"; sol=$(($i + $j)); }
 sub () {
-	i=$((RANDOM%$RANGE+1))
-	j=$((RANDOM%$RANGE+1))
+	i=$((RANDOM%$ADD_SUB_RANGE+2)) # sample from 2-100
+	j=$((RANDOM%$ADD_SUB_RANGE+2)) # sample from 2-100
 	if [ $j -ge $i ]
 	then
 		echo "$j - $i"; sol=$(($j - $i));
@@ -36,22 +36,24 @@ sub () {
 }
 
 multi () {
-	i=$((2+RANDOM%11))
-	j=$((RANDOM%$RANGE+1))
+	i=$((2+RANDOM%$MULTI_DIV_RANGE))
+	j=$((RANDOM%$ADD_SUB_RANGE+1))
 	echo "$i * $j"; sol=$(($i * $j)); }
 div () { 
-	i=$((2+RANDOM%11))
-	j=$((RANDOM%$RANGE+1))
+	i=$((2+RANDOM%$MULTI_DIV_RANGE))
+	j=$((RANDOM%$ADD_SUB_RANGE+1))
 	multi=$(($i * $j))
 	# echo "$multi % $j"; sol=$(bc -l <<< $i/$j); }
 	echo "$multi % $i"; sol=$j; }
 
 MentalMath () {
 	# read -p "range: (defaults to 100) " VARIABLE
-	RANGE=${VARIABLE:=100}
+	# RANGE=${VARIABLE:=100}
 	# read -p "time in seconds: (defaults to two minute) " VARIABLE
 	# time=${VARIABLE:=120}
 	time=120
+	ADD_SUB_RANGE=99
+	MULTI_DIV_RANGE=11
 	echo "you have $time seconds"
 	SECONDS=0
 	CurrentCount=0
