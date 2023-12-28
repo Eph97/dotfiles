@@ -21,3 +21,5 @@ cp ~/.config/tmux/tmux.conf ~/Documents/dotfiles/tmux/tmux.conf
 cp ~/.config/kitty/kitty.conf ~/Documents/dotfiles/kitty/kitty.conf
 
 cp ~/.zshenv .zshenv
+
+brew bundle dump --file=./Brewfile --force
