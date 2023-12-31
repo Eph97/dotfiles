@@ -1,0 +1,18 @@
+Host MyMac
+    # HostName ephraims-mpb.home
+    HostName 192.168.254.24
+    User ephraimsutherland
+
+
+Host grace1
+	Hostname grace1.hpc.yale.edu
+	user es964
+	ForwardX11 yes
+	ForwardX11Trusted yes
+	Compression yes
+
+Host grace2
+	Hostname grace2.hpc.yale.edu
+	user es964
+
+
