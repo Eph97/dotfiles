@@ -7,7 +7,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 bindkey -s '^p' 'nvim "$(fzf)"\n'
 
 
-source ~/.config/bash/aliases.sh
+source ~/.config/zsh/aliases.sh
 source ~/.config/zsh/WorkFlowShortCuts.sh
 source ~/.config/zsh/scripts/arithGame.sh
 # source ~/.config/bash/execut/arithGame.sh
