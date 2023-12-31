@@ -35,3 +35,5 @@ cp ~/.scripts/connect_bluetooth.sh ~/Documents/dotfiles/scripts/connect_bluetoot
 # loop through anonymous files in ~/.config/nvim/snippets/ and copy them to ./nvim/snippets
 #
 
+
+cp ~/.ssh/config ./ssh/

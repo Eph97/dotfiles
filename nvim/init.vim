@@ -426,7 +426,9 @@ nnoremap <c-n> :noh<CR>
 
 
 
-set noswapfile 
+ set noswapfile 
+
+
 
 nnoremap t gt 
 nnoremap T gT 
