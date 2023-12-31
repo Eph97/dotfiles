@@ -9,6 +9,9 @@
 \usepackage{indentfirst}
 \usepackage{amssymb}
 \usepackage{graphicx,psfrag}
+\usepackage{dsfont}
+\usepackage{caption}
+\usepackage{hyperref}
 
 \def\F{\mathcal{F}}
 \def\M{\mathcal{M}}
@@ -19,6 +22,14 @@
 \newcommand{\Z}{\mathbb{Z}}
 \pagenumbering{gobble}
 \def\O{\mathcal{O}}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\1}{\mathds{1}}
+
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\setcounter{secnumdepth}{3}
 
 \newcommand\NoIndent[1]{%
   \begingroup
@@ -27,5 +38,7 @@
   #1\par
   \endgroup
 }
+
+
 %sets align environment spacing
 \setlength{\jot}{3ex}
