@@ -300,6 +300,7 @@ function! Scratch()
     "lcd ~
     file scratch
 endfunction
+command! Scratch call Scratch()
 
 let g:notes_directories = ['~/Documents/Notes']
 
