@@ -2,14 +2,14 @@
 # to tell zsh where to look for .zshrc file
 bindkey -v
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/completion.zsh
 bindkey -s '^p' 'nvim "$(fzf)"\n'
 
 
-source ~/.config/bash/aliases.sh
-source ~/.config/zsh/WorkFlowShortCuts.sh
-source ~/.config/zsh/scripts/arithGame.sh
+# source ~/.config/bash/aliases.sh
+# source ~/.config/zsh/WorkFlowShortCuts.sh
+# source ~/.config/zsh/scripts/arithGame.sh
 # source ~/.config/bash/execut/arithGame.sh
 # source ~/.config/zsh/pdfviewer.sh
 
@@ -33,9 +33,9 @@ zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 
 
-export PATH="$HOME/miniconda/bin:$PATH"
-.  $HOME/miniconda3/etc/profile.d/conda.sh
-
+# export PATH="$HOME/miniconda/bin:$PATH"
+# .  $HOME/miniconda3/etc/profile.d/conda.sh
+# 
 export EDITOR="nvim"
 
 # export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
@@ -96,7 +96,7 @@ zle -N vi-yank-xclip
 bindkey -M vicmd 'y' vi-yank-xclip
 
 
-for f in ~/.scripts/*; do source $f;done
+# for f in ~/.scripts/*; do source $f;done
 
 alias ll="ls -l"
 
@@ -111,11 +111,11 @@ export PATH="$HOME/custom/bin:$PATH"
 alias vimdiff='nvim -d'
 
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export NVM_DIR="$HOME/.config/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# 
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 

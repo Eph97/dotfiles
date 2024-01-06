@@ -22,14 +22,8 @@ endsnippet
 
 snippet ,nm "Math" wA
 \begin{align*}
-	$1
+$1
 \end{align*} $0
-endsnippet
-
-snippet ,bm "Math inline" wA
-\[
-	$1
-\] $0
 endsnippet
 
 # snippet '\\left(\))?' "left right" wr
@@ -40,12 +34,8 @@ snippet { "bracket" i
 \{$1\}$0
 endsnippet
 
-# snippet \{ "set" i
-# \\{$1\\}$0
-# endsnippet
-
-snippet bigc "bigcup" w
-\bigcup
+snippet \{ "set" i
+\\{$1\\}$0
 endsnippet
 
 snippet sqrt "square roote" w
@@ -64,9 +54,9 @@ snippet \sum "Summation" i
 \sum_{$1}^{$2}$0
 endsnippet
 
-# snippet \zum "Summation" i
-# \sum_{$1}^{<++>}<++>
-# endsnippet
+snippet \zum "Summation" i
+\sum_{$1}^{<++>}<++>
+endsnippet
 
 snippet \Pi "Pi" w
 \Pi_{$1}^{$2}$0
@@ -80,46 +70,8 @@ endsnippet
 # `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 # endsnippet
 
-# snippet '([A-Za-z])_' "auto subscript2" wr
-# `!p snip.rv = match.group(1)`_{$1}$0
-# endsnippet
-
-snippet _ "auto subscript2" i
-_{$1}$0
-endsnippet
-
-# in default program
-# snippet '(\\sub|sub)' "auto subscript2" wr
-# \subseteq
-# endsnippet
-
-snippet cal "auto subscript2" w
-\mathcal{$1}$0
-endsnippet
-
-
-snippet ... "ldots" i
-\ldots
-endsnippet
-
-snippet under "underset" w
-\underset{$1}{$2}$0
-endsnippet
-
-snippet math "mathbb symbols" w
-\mathbb{$1}$0
-endsnippet
-
-snippet te "text" w
-\text{$1}$0
-endsnippet
-
-snippet qte "quad text" w
-\quad \text{$1}$0
-endsnippet
-
-snippet ^ "superscript" i
-^{$1}$0
+snippet '([A-Za-z])_' "auto subscript2" wr
+`!p snip.rv = match.group(1)`_{$1}$0
 endsnippet
 
 snippet ,sq "^2" iA
@@ -208,8 +160,8 @@ endsnippet
 # endsnippet
 
 
-# snippet enum "Enumerate" b
-# \begin{enumerate}
-# 	\item $0
-# \end{enumerate}
-# endsnippet
+snippet enum "Enumerate" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet

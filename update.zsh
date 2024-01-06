@@ -27,3 +27,6 @@ cp ~/.config/i3/i3blocks.conf ~/Documents/dotfiles/i3/i3blocks.conf
 
 cp ~/.scripts/dmonitor ~/Documents/dotfiles/scripts/dmonitor
 cp ~/.scripts/connect_bluetooth.sh ~/Documents/dotfiles/scripts/connect_bluetooth.sh
+
+
+cp ~/.xinitrc ./xinitrc
