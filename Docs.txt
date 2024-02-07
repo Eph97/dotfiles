@@ -138,3 +138,6 @@ sudo apt-get install ranger
 # Rclone can mount google drive
 rclone mount mygoogledrive: ~/drive/
 rclone mount personalGoogleDrive: ~/gdrive --daemon
+
+
+USE gh to authenticate Github!!!
