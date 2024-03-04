@@ -1,0 +1,47 @@
+name: kaggle
+channels:
+  - conda-forge
+dependencies:
+  - bzip2=1.0.8=h93a5062_5
+  - ca-certificates=2024.2.2=hf0a4a13_0
+  - libffi=3.4.2=h3422bc3_5
+  - libsqlite=3.45.1=h091b4b1_0
+  - libzlib=1.2.13=h53f4e23_5
+  - ncurses=6.4=h463b476_2
+  - openssl=3.2.1=h0d3ecfb_0
+  - pip=24.0=pyhd8ed1ab_0
+  - python=3.10.13=h2469fbe_1_cpython
+  - readline=8.2=h92ec313_1
+  - setuptools=69.1.0=pyhd8ed1ab_0
+  - tk=8.6.13=h5083fa2_1
+  - tzdata=2024a=h0c530f3_0
+  - wheel=0.42.0=pyhd8ed1ab_0
+  - xz=5.2.6=h57fd34a_0
+  - pip:
+      - bleach==6.1.0
+      - certifi==2024.2.2
+      - charset-normalizer==3.3.2
+      - contourpy==1.2.0
+      - cycler==0.12.1
+      - fonttools==4.49.0
+      - greenlet==3.0.3
+      - idna==3.6
+      - kaggle==1.6.6
+      - kiwisolver==1.4.5
+      - matplotlib==3.8.3
+      - msgpack==1.0.8
+      - neovim==0.3.1
+      - numpy==1.26.4
+      - packaging==23.2
+      - pillow==10.2.0
+      - pynvim==0.5.0
+      - pyparsing==3.1.1
+      - python-dateutil==2.8.2
+      - python-slugify==8.0.4
+      - requests==2.31.0
+      - six==1.16.0
+      - text-unidecode==1.3
+      - tqdm==4.66.2
+      - urllib3==2.2.1
+      - webencodings==0.5.1
+prefix: /Users/ephraimsutherland/miniforge3/envs/kaggle

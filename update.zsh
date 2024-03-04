@@ -23,3 +23,8 @@ cp ~/.config/kitty/kitty.conf ~/Documents/dotfiles/kitty/kitty.conf
 cp ~/.zshenv .zshenv
 
 brew bundle dump --file=./Brewfile --force
+
+for env in $(conda env list | awk '{print $1}' | tail -n +3); do
+    conda env export -n $env > conda_envs/$env.yml
+done
+# conda env export -n kaggle > conda_envs/kaggle.yml
