@@ -1,8 +1,8 @@
 # dotfiles
 
 
-* Window Manager -- Yabai
+<!-- * Window Manager -- Yabai -->
 * TextEditor -- Neovim
-* Terminal -- Iterm2
+* Terminal -- kitty
 * Shell -- zsh
 
