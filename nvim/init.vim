@@ -63,6 +63,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'machakann/vim-highlightedyank'
 
+Plug 'github/copilot.vim'
 
 Plug 'preservim/nerdtree'
 "
@@ -319,5 +320,28 @@ endfunction
 " " Turn off the 80th column line
 let g:vimforstata_set_column = 0
 
+autocmd FileType stata setlocal commentstring=//\ %s
+ 
+
 set guitablabel=%t
 
+
+set noswapfile 
+
+nnoremap t gt 
+nnoremap T gT 
+
+cmap fp let @+ = '"' . expand("%:p") .'"' <cr>
+cmap fdir let @+ = '"' . expand("%:p:h") .'"' <cr>
+cmap xstata let @+ = 'cd "' . expand("%:p:h") .'" ' . "\ndoedit " . expand("%:t") <cr>
+
+
+let g:rooter_manual_only = 1
+
+let g:copilot_enabled = v:false
+
+function! Spellcheck()
+  setlocal spell spelllang=en_us
+endfunction
+
+command! Spellcheck call Spellcheck()
