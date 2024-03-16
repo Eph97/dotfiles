@@ -5,9 +5,9 @@
 #     . "$BASHRC_CONFIG_DIR/.bashrc"
 # fi
 
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
-source ~/.config/bash/aliases.sh
+# source ~/.config/bash/aliases.sh
 
 # shopt -s extglob
 
@@ -17,9 +17,9 @@ source ~/.config/bash/execut/arithGame.sh
 
 #figlet fuck the police
 
-source ~/.git-completion.bash
+# source ~/.git-completion.bash
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 
@@ -30,7 +30,9 @@ source ~/.git-completion.bash
 
 export EDITOR="nvim"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
+# source /usr/share/fzf/completion.bash
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 bind -x '"\C-p": nvim $(fzf);'
 
@@ -39,7 +41,9 @@ bind -x '"\C-p": nvim $(fzf);'
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+# export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+#     nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+#     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+#     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
+export PATH="$HOME/go/bin:$PATH"
