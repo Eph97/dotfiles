@@ -5,6 +5,10 @@
 SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history
 
+# Avoid duplicate entries
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+
 if [ -f "/opt/homebrew/Cellar/fzf/0.45.0/shell/key-bindings.zsh" ]; then
 	. /opt/homebrew/Cellar/fzf/0.45.0/shell/key-bindings.zsh 
 fi
@@ -139,3 +143,25 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+
+fzf-history-widget() {
+  local selected num
+  selected=( $(fc -rl 1 | awk '{$1=""; print substr($0,2)}' | fzf --tac +s --query="$LBUFFER") )
+  if [[ -n $selected ]]; then
+    num=$(echo $selected | awk '{print $1}')
+    LBUFFER=$(fc -rl $num | tail -n 1 | awk '{$1=""; print substr($0,2)}')
+  fi
+  zle reset-prompt
+}
+
+# Bind Ctrl+R to the fzf-based history search
+zle -N fzf-history-widget
+bindkey '^R' fzf-history-widget
